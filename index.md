@@ -10,7 +10,7 @@ Cat Academy
 
 We are [Robocat](http://robo.cat/), a product company from Copenhagen.
 Over years we have built apps, games and even hardware.
-We learned a lot while doing this, also from our mistakes.
+We learned a lot while doing this; also from our mistakes.
 We are launching **Cat Academy** to share our experience with you. Here’s the first course we’ve made:
 
 
@@ -37,12 +37,12 @@ You will learn to use the following technologies and tools:
 
  * Python programming language,
  * Flask—web micro-framework,
- * SQLAlchemy—object-relational mapper,
+ * SQLAlchemy—object-relational mapping library,
  * Heroku—app-hosting platform.
 
 You will not become an expert in these technologies, but you
 will learn enough to be able to use them to create simple
-API servers, and prepared enough to be able to study further
+API servers, and be prepared enough to be able to study further
 on your own.
 
 Instructor
@@ -55,7 +55,7 @@ Instructor
 </a>
 
 [Vladimir Keleshev](https://twitter.com/keleshev) is a software developer at Robocat.
-He worked on back-ends of a few online games, such as
+He worked on back-ends of online games, such as
 [Gameglobe](http://gameglobe.com/) and
 [Wordbase](http://www.wordbaseapp.com/).
 He also authored some open-source projects, such as
@@ -63,7 +63,7 @@ He also authored some open-source projects, such as
 [schema](https://github.com/keleshev/schema).
 As a hobby he helps teaching
 a [Python course](http://www2.compute.dtu.dk/courses/02819/)
-at Technical University of Denmark, as a teaching assistant.
+at Technical University of Denmark as a teaching assistant.
 He co-organizes [Python meetup](http://pycon.dk/) as well as
 [Polyglots meetup](http://www.polyglots.dk/) in Copenhagen area.
 Occasionally he speaks at [conferences](http://youtu.be/pXhcPJK5cMc)
@@ -90,7 +90,7 @@ Price
 
 We are offering our first course for a very special early-cat price of
 <i><span style="font-size: smaller;">DKK</span>&nbsp;**3.141,–**</i>
-for two-day course. Breakfast and lunch is on us.
+for the two-day course. Breakfast and lunch is on us.
 
 Prerequisites
 -------------
@@ -107,7 +107,7 @@ joining this course:
 You will need to bring a laptop with OS X or Linux operating
 system installed. If you have Windows you can use
 [VirtualBox](http://www.psychocats.net/ubuntu/virtualbox)
-to install Linux alongside with Windows in a sandbox environment.
+to install Linux alongside Windows in a sandbox environment.
 But remember that you still need basic knowledge of Unix and shell.
 
 Unlike the title suggests, you do not need to be a front-end
