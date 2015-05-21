@@ -43,11 +43,7 @@ June 11—12<sup>th</sup>
 <abbr title="Danish krone">DKK</abbr><strong> 3.141,–</strong>
 </i>
 
-<a style="
-    background-color: black; color: white; border-radius: 99px;
-    padding: 0.5em 1em 0.5em 1em;
-    line-height: 2.3em;
-    text-decoration: none;"href="#">
+<a id="buy" href="https://billetto.dk/en/events/catacademy1/tickets">
    Buy ticket
 </a>
 
@@ -162,38 +158,9 @@ Denmark
 
 
 
-<!--table>
-    <a href="//twitter.com/robocat">
-        <tr>
-            <td>
-
-               <img alt="Twitter " width="39" height="32"
-                  style="margin: 6px 2px 6px 3px"
-                  src="images/twitter.png" />
-            </td>
-            <td>
-                 @catacademy
-            </td>
-        </tr>
-    </a>
-    <tr>
-        <a href="//twitter.com/robocat">
-            <td>
-
-                <img alt="Email" width="44" height="32"
-                  style="margin: 6px 0px 6px 0px"
-                  src="images/email.png" />
-            </td>
-            <td>
-                 hello@catacademy.dk
-            </td>
-        </a>
-    </tr>
-</table-->
-
-
 
 <center>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
@@ -209,13 +176,7 @@ Denmark
     border: none;
     outline: none;
 ">
-  <input type="submit" id="subscribe" value="Subscribe" name="subscribe"
-         style="
-    background-color: black; color: white; border-radius: 99px;
-    padding: 0.5em 1em 0.5em 1em;
-    margin-left: -1em;
-    cursor: pointer;
-">
+  <input type="submit" id="subscribe" value="Subscribe" name="subscribe">
 </form>
 
 <script>
@@ -236,20 +197,38 @@ $('#signup_form').on('submit', function (e) {
 });
 </script>
 
-<a href="//twitter.com/robocat">
-   <img alt="Twitter " width="39" height="32"
-      style="margin: 6px 2px 6px 3px"
-      src="images/twitter.png" /><span>@robocat</span></a>
-&nbsp;&bull;&nbsp;
-<a href="//www.facebook.com/robocatapps">
-<img alt="Facebook" width="24" height="41"
-      style="margin: 1px 10px 2px 10px"
-      src="images/facebook.png" />/robocatapps</a>
-&nbsp;&bull;&nbsp;
-<a href="mailto:hello@robo.cat?subject=Cat Academy">
-<img alt="Email" width="44" height="32"
-      style="margin: 6px 0px 6px 0px"
-     src="images/email.png" />hello@robo.cat</a>
+  <h2>Take our <a href='https://docs.google.com/a/robocatapps.com/forms/d/1K9ViKOc9R-8dumMKy0IxXnewG3QXWmX5PHlAWoBRuKA/viewform'>survey</a></h2>
+
+<a href="//twitter.com/robocat"
+   style="background-image: url('images/twitter.png');
+          background-size: 39px 32px;
+          background-repeat: no-repeat;
+          background-position: 0 50%;
+          padding-left: 49px;
+          padding-right: 20px;
+          display: inline-block;
+         ">@robocat</a>
+<a href="//www.facebook.com/robocatapps"
+   style="background-image: url('images/facebook.png');
+          background-size: 24px 41px;
+          background-repeat: no-repeat;
+          background-position: 0 50%;
+          padding-left: 34px;
+          padding-right: 20px;
+          paddint-top:10px;
+          display: inline-block;
+          line-height: 100px;
+         ">/robocatapps</a>
+<a href="mailto:hello@robo.cat?subject=Cat Academy"
+   style="background-image: url('images/email.png');
+          background-size: 44px 32px;
+          background-repeat: no-repeat;
+          background-position: 0 50%;
+          padding-left: 54px;
+          display: inline-block;
+         ">hello@robo.cat</a>
+
+
 
 <a href="//robo.cat">
 <img alt="Robocat" width="173" height="46"
