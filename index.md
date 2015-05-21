@@ -34,7 +34,13 @@ Back-end <abbr title="application programming interface">API</abbr> development 
 
 <center>
 
-<p><i>A two-day course for <abbr title="Danish krone">DKK</abbr> <strong>3.141,– </strong></i></p>
+<i>
+June 11—12<sup>th</sup>
+&nbsp;&bull;&nbsp;
+10/10 seats left
+&nbsp;&bull;&nbsp;
+<abbr title="Danish krone">DKK</abbr><strong> 3.141,–</strong>
+</i>
 
 <a style="
     background-color: black; color: white; border-radius: 99px;
@@ -43,6 +49,7 @@ Back-end <abbr title="application programming interface">API</abbr> development 
     text-decoration: none;"href="#">
    Buy ticket
 </a>
+
 
 </center>
 
@@ -87,7 +94,7 @@ and [meetups](http://youtu.be/1h1mM7VwNGo).
 Price
 -----
 
-We are offering our first course for a very special early-cat price of
+We are offering our very first course for a special early-cat price of
 <i><abbr title="Danish krone">DKK</abbr>&nbsp;**3.141,–**</i>
 for the two-day course. Breakfast and lunch is on us.
 
