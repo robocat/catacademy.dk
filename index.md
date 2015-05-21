@@ -3,10 +3,11 @@
 Cat Academy
 ===========
 
-We are [Robocat](http://robo.cat/), a product company from Copenhagen.
-Over years we have built apps, games and even hardware.
-We learned a lot while doing this; also from our mistakes.
-We are launching **Cat Academy** to share our experience with you. Here’s the first course we’re offering:
+We are [Robocat](//robo.cat/), a product company from Copenhagen. Over the
+years we have built apps, games and even hardware. We learend a lot while doing
+this; also from our mistakes. We are launching **Cat Academy**, an initiative
+to share our experience and knowledge with you. Here’s the first course we’re
+offering:
 
 
 
@@ -161,20 +162,7 @@ Denmark
 
 
 
-<!--a href="//twitter.com/robocat">
-   <img alt="Twitter " width="39" height="32"
-      style="margin: 6px 2px 6px 3px"
-      src="images/twitter.png" />@catacademy</a><br>
-<a href="//facebook.com/robocat">
-<img alt="Facebook" width="24" height="41"
-      style="margin: 1px 10px 2px 10px"
-      src="images/facebook.png" />/catacademy</a><br>
-<a href="mailto://hello@robo.cat">
-<img alt="Email" width="44" height="32"
-      style="margin: 6px 0px 6px 0px"
-     src="images/email.png" />hello@catacademy.dk</a>
-
-<table>
+<!--table>
     <a href="//twitter.com/robocat">
         <tr>
             <td>
@@ -247,6 +235,21 @@ $('#signup_form').on('submit', function (e) {
 
 });
 </script>
+
+<a href="//twitter.com/robocat">
+   <img alt="Twitter " width="39" height="32"
+      style="margin: 6px 2px 6px 3px"
+      src="images/twitter.png" /><span>@robocat</span></a>
+&nbsp;&bull;&nbsp;
+<a href="//www.facebook.com/robocatapps">
+<img alt="Facebook" width="24" height="41"
+      style="margin: 1px 10px 2px 10px"
+      src="images/facebook.png" />/robocatapps</a>
+&nbsp;&bull;&nbsp;
+<a href="mailto:hello@robo.cat?subject=Cat Academy">
+<img alt="Email" width="44" height="32"
+      style="margin: 6px 0px 6px 0px"
+     src="images/email.png" />hello@robo.cat</a>
 
 <a href="//robo.cat">
 <img alt="Robocat" width="173" height="46"
