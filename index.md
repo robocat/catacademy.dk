@@ -9,6 +9,7 @@ We learned a lot while doing this; also from our mistakes.
 We are launching **Cat Academy** to share our experience with you. Here’s the first course we’re offering:
 
 
+
 <p style="
 position: absolute;
 color: #ECECEC;
@@ -195,12 +196,53 @@ Denmark
     </tr>
 </table-->
 
+
+
 <center>
-      <a href="//robo.cat">
-        <img alt="Robocat" width="173" height="46"
-             src="images/footer-logo.png" />
-      </a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+<form id="signup_form">
+  <h2>Subscribe to Cat Academy newsletter</h2>
+  <input type="email" name="email" id="email"
+         placeholder="Your email" style="
+    background-color: white; color: black;
+    border-radius: 99px 0 0 99px;
+
+    padding: 0.5em 2em 0.5em 1em;
+    border: none;
+    outline: none;
+">
+  <input type="submit" id="subscribe" value="Subscribe" name="subscribe"
+         style="
+    background-color: black; color: white; border-radius: 99px;
+    padding: 0.5em 1em 0.5em 1em;
+    margin-left: -1em;
+    cursor: pointer;
+">
+</form>
+
+<script>
+$('#signup_form').on('submit', function (e) {
+  console.log('start')
+  e.preventDefault();
+  var url = 'http://newsletters.robocatapps.com/signup';
+  var post_data = {email: $('#email').val(), list: 'cat-academy'}
+  console.log(post_data)
+  $.post(url, post_data, function (data, status, xhr) {
+    $('#subscribe').val('Thank you')
+    $('#subscribe').attr('disabled', 'disabled');
+    $('#subscribe').attr('cursor', 'default');
+    $('#email').attr('disabled', 'disabled');
+    console.log(data)
+  });
+
+});
+</script>
+
+<a href="//robo.cat">
+<img alt="Robocat" width="173" height="46"
+     src="images/footer-logo.png" />
+</a>
 </center>
-
-
-

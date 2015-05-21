@@ -11,6 +11,14 @@ body {
     background-color: #ECECEC; white; #f3f3f3; #f0f0e9;
 }
 
+input {
+    font-size: 25.5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: none;
+}
+
+
+
 @font-face {
  font-family: 'Friendly-Icons-Font';
  src: url('/fonts/Friendly-Icons-Font.woff') format('woff');
