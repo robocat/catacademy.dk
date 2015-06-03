@@ -1,6 +1,6 @@
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 24px;
+  font-size: 20px;
   font-color: #424242;
   margin: 0; }
 
@@ -14,7 +14,7 @@ h1 {
   font: normal 900 42pt/1.2em "lato", "Helvetica Neue", Helvetica, sans-serif; }
 
 h3 {
-  font: normal 900 24pt "lato", "Helvetica Neue", Helvetica, sans-serif;
+  font: normal 900 22pt "lato", "Helvetica Neue", Helvetica, sans-serif;
   text-align: center; }
 
 .header {
@@ -82,7 +82,7 @@ h3 {
       background-color: white; }
       .content .course .description .quote {
         text-align: center;
-        padding: 50px 50px;
+        padding: 20px 50px;
         width: 300px;
         float: left;
         font-size: 50px; }
@@ -95,7 +95,31 @@ h3 {
       background: #EEC302 url("images/whiteboard.png") no-repeat right;
       background-size: 426px auto; }
       .content .course .what-you-learn .copy {
-        padding: 0 400px 50px 50px; }
+        padding: 0 450px 50px 100px; }
+  .content .instructor {
+    display: inline-block;
+    background: white url("images/keleshev.jpg") no-repeat left;
+    background-position: 100px;
+    background-size: 200px auto; }
+    .content .instructor .copy {
+      margin: 0 50px 50px 400px; }
+  .content .prerequisites {
+    display: inline-block;
+    background: white url("images/prerequisites-background.jpg") center;
+    background-size: 1322px auto; }
+    .content .prerequisites h3 {
+      color: white; }
+    .content .prerequisites .copy {
+      background: white;
+      padding: 30px;
+      margin: 100px; }
+  .content .details {
+    display: inline-block;
+    padding: 50px;
+    background-color: white; }
+    .content .details .left {
+      float: left;
+      padding-right: 75px; }
 
 img {
   zoom: 50%; }
