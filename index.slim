@@ -1,0 +1,88 @@
+doctype html
+html
+  head
+    title Cat Academy
+    meta charset='utf-8'
+    link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css'
+    link rel='stylesheet' href='style.css'
+    javascript:
+      console.log('Slim supports embedded javascript!')
+
+  body
+    .header
+      .hero
+        img src='images/logo.png'
+
+        h1 Cat Academy
+        h2 Crowdfunded local courses & workshops from people who care.
+
+        .navigation
+          a.left href='#' Check out our first course
+          a.right href='#' Be notified of future events
+
+    .content
+
+      .mission-statement
+        markdown:
+          We are <b><i><a href='http://robo.cat'>Robocat</a></i></b>,
+          a product company from Copenhagen.  Over the years we have
+          built apps, games and even hardware. We've grown a small
+          team of very talented people and we've learned a lot doing
+          this. We are launching Cat Academy, an initiative to share
+          our experience and knowledge with you through honest and
+          well crafted learning events.
+
+      .course
+        .course-card
+          .tagline
+            .tag course
+
+          p
+            markdown:
+              June 31–32^(th)
+
+          h1 Back-end API developement for front-end developers
+
+          a.buy-ticket href='#' Buy Ticket
+
+          p from DKK 3,141.–
+
+        .description
+          .quote
+            markdown:
+              "Help! My App Needs a Back-end!"
+
+          .copy
+            markdown:
+              Most products these days, even the simplest apps
+              need some measure of back-end development.
+              More and more people are learning the desing and
+              front-end tools to create the products of their
+              dreams but back-end development remains one of
+              the trickier aspects of the process. We'd like to
+              help you with that.
+
+        .what-you-learn
+          h3 What you'll learn
+
+          .copy
+            markdown:
+              During the two-day course you will develop a
+              small API server for a turn-based multiplayer
+              game. You will learn to use the following
+              technologies and tools:
+
+                * Python programming language,
+                * Flask–web micro-framework,
+                * SQLAlchemy—object-relational mapping library,
+                * Heroku—app-hosting platform.
+
+              You will not become an expert in these technologies,
+              but you will learn enough to be able to use them to
+              create simple API servers, and be prepated enough to
+              be able to study further on your own.
+
+
+    .footer
+      | Copyright © 2015 Robocat
+
