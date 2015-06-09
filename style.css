@@ -10,6 +10,9 @@ a {
 a:hover {
   text-decoration: none; }
 
+input {
+  outline: none; }
+
 h1 {
   font: normal 900 42pt/1.2em "lato", "Helvetica Neue", Helvetica, sans-serif; }
 
@@ -30,7 +33,8 @@ h3 {
       font: normal 100 34pt/1.2em "lato", "Helvetica Neue", Helvetica, sans-serif; }
     .header .hero .navigation {
       padding-top: 22px;
-      font-size: 18px; }
+      font-size: 18px;
+      text-align: right; }
       .header .hero .navigation a {
         color: white;
         margin: 50px;
@@ -120,10 +124,68 @@ h3 {
     .content .details .left {
       float: left;
       padding-right: 75px; }
+  .content .newsletter {
+    padding: 50px;
+    text-align: center;
+    font-size: 25px; }
+    .content .newsletter form {
+      display: inline-block;
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px; }
+      .content .newsletter form input.email {
+        width: 500px;
+        border: none; }
+      .content .newsletter form input.subscribe {
+        background: url("images/disclosure-indicator.png") no-repeat;
+        opacity: 0.5;
+        background-size: 22px;
+        border: none;
+        width: 22px;
+        height: 22px; }
+      .content .newsletter form input.subscribe:hover {
+        opacity: 1; }
+
+.footer {
+  padding: 50px 0;
+  font: normal 200 18px "lato", "Helvetica Neue", Helvetica, sans-serif;
+  background-color: #D1D1D1;
+  color: #777; }
+  .footer .contents {
+    height: 250px;
+    width: 1000px;
+    margin: 0 auto; }
+    .footer .contents .location {
+      float: left; }
+      .footer .contents .location .map {
+        float: left; }
+      .footer .contents .location .address {
+        margin-left: 30px;
+        float: right; }
+        .footer .contents .location .address h2 {
+          color: black;
+          font-size: 28px; }
+    .footer .contents .social {
+      float: right;
+      font-weight: bold;
+      font-size: 28px;
+      color: black; }
+      .footer .contents .social a {
+        text-decoration: none;
+        padding: 50px;
+        padding-left: 64px; }
+      .footer .contents .social a.twitter {
+        background: url("images/twitter.png") no-repeat left;
+        background-size: 44px auto; }
+      .footer .contents .social a.facebook {
+        background: url("images/facebook.png") no-repeat left;
+        background-size: 44px auto; }
+      .footer .contents .social a.email {
+        background: url("images/email.png") no-repeat left;
+        background-size: 44px auto; }
+  .footer .copyright {
+    display: block;
+    text-align: center; }
 
 img {
   zoom: 50%; }
-
-#main {
-  color: blue;
-  font-size: 0.3em; }

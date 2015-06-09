@@ -5,6 +5,7 @@ html
     meta charset='utf-8'
     link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css'
     link rel='stylesheet' href='style.css'
+    script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'
     javascript:
       console.log('Slim supports embedded javascript!')
 
@@ -43,7 +44,7 @@ html
 
           h1 Back-end API developement for front-end developers
 
-          a.buy-ticket href='#' Buy Ticket
+          a.buy-ticket href='#' Claim Your Seat
 
           p from DKK 3,141.–
 
@@ -172,8 +173,44 @@ html
               you get familiar with awesome subjects and leave you thirsty
               for more
 
+        /.map
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2249.4510110893502!2d12.579214999999998!3d55.6811462!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46525310a82927d1%3A0xa3f8d542574de862!2sPilestr%C3%A6de+43%2C+1112+K%C3%B8benhavn+K!5e0!3m2!1sen!2sdk!4v1432124533841" width="850" height="450" frameborder="0" style="border:0"></iframe>
+
+      .newsletter
+        p
+          | Want to be informed of future Cat Academy events?  <br>
+          | Sign up for our event list
+        form
+          input.email type="email" placeholder="you@your-email.com"
+          input.subscribe type="submit" value=""
+
+
 
 
     .footer
-      | Copyright © 2015 Robocat
+      .contents
+
+        .location
+          a href='https://goo.gl/1oLgFm'
+            img.map src='images/map.png'
+          .address
+            markdown:
+
+              Robocat
+              -------
+
+              Pilestraede 43, 2^(nd) Floor <br>
+              1112 Copenhagen <br>
+              Denmark <br>
+
+        .social
+          p
+            a.twitter href='#' @robocat
+          p
+            a.facebook href='#'
+              | /robocatapps
+          p
+            a.email href='#' hello@robo.cat
+
+      small.copyright Copyright © 2009–2015 Robocat
 

@@ -4,12 +4,15 @@ body
   font-color: #424242
   margin: 0
 
-
 a
   color: #424242
 
 a:hover
   text-decoration: none
+
+
+input
+  outline: none
 
 h1
   font: normal 900 42pt/1.2em "lato", "Helvetica Neue", Helvetica, sans-serif
@@ -36,6 +39,7 @@ h3
     .navigation
       padding-top: 22px
       font-size: 18px
+      text-align: right
 
       a
         color: white
@@ -151,11 +155,83 @@ $purple: #BAB4DC
       float: left
       padding-right: 75px
 
+  .newsletter
+    padding: 50px
+    text-align: center
+    font-size: 25px
 
+    form
+      display: inline-block
+      background-color: white
+      border-radius: 10px
+      padding: 20px
+
+      input.email
+        width: 500px
+        border: none
+
+      input.subscribe
+        background: url('images/disclosure-indicator.png') no-repeat
+        opacity: 0.5
+        background-size: 22px
+        border: none
+        width: 22px
+        height: 22px
+
+      input.subscribe:hover
+        opacity: 1
+
+
+.footer
+  padding: 50px 0
+  font: normal 200 18px "lato", "Helvetica Neue", Helvetica, sans-serif
+  background-color: #D1D1D1
+  color: #777
+
+
+  .contents
+    height: 250px
+    width: 1000px
+    margin: 0 auto
+
+    .location
+      float: left
+
+      .map
+        float: left
+
+      .address
+        margin-left: 30px
+
+        float: right
+        h2
+          color: black
+          font-size: 28px
+
+    .social
+      float: right
+      font-weight: bold
+      font-size: 28px
+      color: black
+
+      a
+        text-decoration: none
+        padding: 50px
+        padding-left: 64px
+
+      a.twitter
+        background: url('images/twitter.png') no-repeat left
+        background-size: 44px auto
+      a.facebook
+        background: url('images/facebook.png') no-repeat left
+        background-size: 44px auto
+      a.email
+        background: url('images/email.png') no-repeat left
+        background-size: 44px auto
+
+  .copyright
+    display: block
+    text-align: center
 
 img
   zoom: 50%
-
-#main
-  color: blue
-  font-size: 0.3em
