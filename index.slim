@@ -6,8 +6,7 @@ html
     link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css'
     link rel='stylesheet' href='style.css'
     script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'
-    javascript:
-      console.log('Slim supports embedded javascript!')
+    script src='//checkout.stripe.com/checkout.js'
 
   body
     .header
@@ -46,7 +45,7 @@ html
 
           a.buy-ticket href='#' Claim Your Seat
 
-          p from DKK 3,141.–
+          p for DKK 3,141.–
 
         .description
           .quote
@@ -214,3 +213,24 @@ html
 
       small.copyright Copyright © 2009–2015 Robocat
 
+coffee:
+  checkout = StripeCheckout.configure
+    key: 'pk_test_6pRNASCoBOKtIshFeQd4XMUh'
+    image: 'images/checkout-logo.png'
+    token: (token) ->
+      console.log token
+      console.log (JSON.stringify token)
+      $('.buy-ticket').css(backgroundColor: 'black').text('Thank you')
+
+  $('.buy-ticket').on 'click', (e) ->
+    console.log 'click'
+    checkout.open
+      name: 'Cat Academy'
+      description: 'Reservation for course “Back-end API developement for front-end developers”'
+      amount: 314100
+      currency: 'dkk'
+      panelLabel: 'Claim for DKK 3,141.–'
+      allowRememberMe: false
+    e.preventDefault()
+
+  $(window).on 'popstate', -> checkout.close()

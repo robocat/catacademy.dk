@@ -4,5 +4,7 @@ source "https://rubygems.org"
 
 gem "slim"
 gem "redcarpet"
+gem "coffee-script"
 
 gem "sass"
+
