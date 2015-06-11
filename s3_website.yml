@@ -3,15 +3,12 @@ s3_secret: <%= ENV['S3_SECRET_ACCESS_KEY'] %>
 s3_bucket: catacademy.dk
 cloudfront_distribution_id: E1934J4RTIKPD4
 
-site: .
+site: build
 
 max_age:
     "*": 300
 
 gzip: true
-
-exclude_from_upload:
-  - ".git"
 
 ignore_on_server: downloads
 
