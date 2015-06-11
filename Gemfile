@@ -8,3 +8,4 @@ gem "coffee-script"
 
 gem "sass"
 
+gem "s3_website"
