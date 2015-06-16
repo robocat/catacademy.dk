@@ -6,7 +6,7 @@ cloudfront_distribution_id: E1934J4RTIKPD4
 site: build
 
 max_age:
-    "*": 300
+    "*": 60
 
 gzip: true
 
