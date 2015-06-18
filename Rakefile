@@ -8,7 +8,7 @@ task :default => :build
 
 task :build  do |t|
   sh 'mkdir -p build'
-  sh 'cp -r images build/images'
+  sh 'cp -r images build/'
 
   optional_option_hash = {}
   Slim::Embedded.options[:markdown] = {superscript: true}

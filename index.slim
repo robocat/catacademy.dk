@@ -44,6 +44,16 @@ html
 
           h1 Back-end API developement for front-end developers
 
+          .progress-bar
+            .seats-available
+              .value 10/10
+              | Seats available
+            .seat-goal
+              .value 5
+              | Seat goal
+            .bar
+              .progress
+
           a.buy-ticket href='#' Claim Your Seat
 
           p for DKK 3,141.–
@@ -216,19 +226,27 @@ html
       small.copyright Copyright © 2009–2015 Robocat
 
 coffee:
-  base_url = if location.hostname == 'localhost'
-    'http://localhost:5000'
+  base_url = if location.hostname == 'catacademy.dev'
+    'http://catacademy.dev:5000'
   else
-    'https://catacademy.herokuapp.com'
+    'https://api.catacademy.dk'
 
   $.getJSON(base_url).done ({events, stripe}) ->
+  #if true
     console.log(events)
+    event = events[0]
+    participants = event.participants
+    #participants = {max: 10, pledged: 0, min: 5}
+    progress = participants.pledged / participants.max * 100
+    $('.bar .progress').animate({width: "#{progress}%"}, 'slow')
+    $('.seat-goal .value').text(participants.min)
+    $('.seats-available .value').text("#{participants.pledged}/#{participants.max}")
     checkout = StripeCheckout.configure
       key: stripe.publishable_key
       image: 'images/checkout-logo.png'
       token: (token) ->
         console.log token
-        url = "#{base_url}/events/#{events[0].id}/pledges"
+        url = "#{base_url}/events/#{event.id}/pledges"
         console.log(url)
         $.ajax(url, {
           type: 'POST',
@@ -263,10 +281,10 @@ coffee:
   $('.newsletter form').on 'submit', (e) ->
     console.log 'submit'
     e.preventDefault()
-    url = 'http://newsletters.robocatapps.com/signup'
+    url = 'https://robocat-newsletters.herokuapp.com/signup'
     post_data = {email: $('input.email').val(), list: 'cat-academy'}
     $.post url, post_data, ({status, message}, _status, _xhr) ->
-      console.log data, status
+      console.log status
       #if status == 'success'
       $('input.email').attr('disabled', 'disabled')
       $('input.email').val('Thank you.')
