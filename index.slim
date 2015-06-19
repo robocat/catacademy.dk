@@ -5,6 +5,7 @@ html
     meta charset='utf-8'
     link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css'
     link rel='stylesheet' href='style.css'
+    link rel='icon' href='images/icon.png'
     script src='//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'
     script src='//checkout.stripe.com/checkout.js'
     meta name="google-site-verification" content="gUkmMPVrwtBqCw_9zP6BNUjcT6zqhVDKokckqaRvPuA"
@@ -40,23 +41,29 @@ html
 
           p
             markdown:
-              June 31–32^(th)
+              July 13–14^(th)
 
-          h1 Back-end API developement for front-end developers
+          h1.title Back-end API developement for front-end developers
 
           .progress-bar
             .seats-available
-              .value 10/10
+              .value  _/_
               | Seats available
             .seat-goal
-              .value 5
+              .value _
               | Seat goal
             .bar
               .progress
 
-          a.buy-ticket href='#' Claim Your Seat
-
-          p for DKK 3,141.–
+          .action
+            a.buy-ticket href='#' Pledge <small>DKK</small> 3.141,–
+            .price
+              | for 1 seat
+              br
+              br
+              small
+                | You will only be charged if the campaing reaches its goal.
+                |  If you don't like the course—we'll give the money back.
 
         .description
           .quote
@@ -145,7 +152,7 @@ html
             markdown:
               ### Preliminary Schedule
 
-              Thursday, June 31^(th)
+              Thursday, July 13^(th)
 
               * 09:30 Breakfast
               * 12:00 Lunch
@@ -153,7 +160,7 @@ html
               * 16:00 Coffee break
               * 16:30 Over and out
 
-              Friday, June 32^(th)
+              Friday, July 14^(th)
 
               * 09:30 Breakfast
               * 12:00 Lunch
@@ -226,24 +233,30 @@ html
       small.copyright Copyright © 2009–2015 Robocat
 
 coffee:
-  base_url = if location.hostname == 'catacademy.dev'
-    'http://catacademy.dev:5000'
+  if location.hostname == 'catacademy.dev'
+    base_url = 'http://catacademy.dev:5000'
+    image_url = 'images/checkout-logo.png'
   else
-    'https://api.catacademy.dk'
+    base_url = 'https://api.catacademy.dk'
+    image_url = 'images/checkout-logo.png'
 
-  $.getJSON(base_url).done ({events, stripe}) ->
-  #if true
-    console.log(events)
-    event = events[0]
+
+  render_event = (event) ->
     participants = event.participants
-    #participants = {max: 10, pledged: 0, min: 5}
     progress = participants.pledged / participants.max * 100
+    $('.course .title').text(event.name)
     $('.bar .progress').animate({width: "#{progress}%"}, 'slow')
     $('.seat-goal .value').text(participants.min)
-    $('.seats-available .value').text("#{participants.pledged}/#{participants.max}")
+    $('.seats-available .value').text(
+      "#{participants.max - participants.pledged}/#{participants.max}")
+
+  $.getJSON(base_url).done ({events, stripe}) ->
+    console.log(events)
+    event = events[0]
+    render_event event
     checkout = StripeCheckout.configure
       key: stripe.publishable_key
-      image: 'images/checkout-logo.png'
+      image: image_url #'images/checkout-logo.png'
       token: (token) ->
         console.log token
         url = "#{base_url}/events/#{event.id}/pledges"
@@ -254,17 +267,28 @@ coffee:
           data: JSON.stringify(token),
         }).done () ->
           $('.buy-ticket').css(backgroundColor: 'black').text('Thank you')
+          promise = $.getJSON(base_url).done ({events: [event], stripe}) ->
+            render_event event
+            $('.buy-ticket').text(
+              "Thank you! Check your inbox #{token.email} for details."
+            ).off('click')
+            $('.action .price').text('')
+          promise.fail (data, status, jqxhr) ->
+            alert "An error occured. Please contact support@catacademy.dk."
 
-    $('.buy-ticket').on 'click', (e) ->
-      console.log 'click'
-      checkout.open
-        name: 'Cat Academy'
-        description: 'Pledge for course “Back-end API developement for front-end developers”'
-        amount: 314100
-        currency: 'dkk'
-        panelLabel: 'Pledge DKK 3,141.–'
-        allowRememberMe: false
-      e.preventDefault()
+    if event.is_fully_booked
+      $('.action').html('The event was successfully funded and is fully booked. <br> For future events <a href=#newsletter-signup>signup for our newsletter</a>.')
+    else
+      $('.buy-ticket').on 'click', (e) ->
+        console.log 'click'
+        checkout.open
+          name: 'Cat Academy'
+          description: "Pledge for course: #{event.name}"
+          amount: 314100
+          currency: 'dkk'
+          panelLabel: 'Pledge {{amount}}' # DKK 3,141.–'
+          allowRememberMe: false
+        e.preventDefault()
 
     $(window).on 'popstate', -> checkout.close()
 
@@ -275,7 +299,7 @@ coffee:
       event.preventDefault()
       #target.animate {zoom: '115%'}, 1000
       #target.focus()
-      $('html, body').animate {, scrollTop: target.offset().top}, 500, ->
+      $('html, body').animate {scrollTop: target.offset().top}, 500, ->
         target.focus()
 
   $('.newsletter form').on 'submit', (e) ->

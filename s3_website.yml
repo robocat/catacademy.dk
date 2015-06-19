@@ -6,9 +6,9 @@ cloudfront_distribution_id: E1934J4RTIKPD4
 site: build
 
 max_age:
-    "*": 60
+    "*": 0
 
-gzip: true
+gzip: false
 
 ignore_on_server: downloads
 
