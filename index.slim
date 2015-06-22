@@ -43,7 +43,8 @@ html
             markdown:
               July 13–14^(th)
 
-          h1.title Back-end API developement for front-end developers
+          h1.title
+            span style='font-weight: normal' ⌛
 
           .progress-bar
             .seats-available
@@ -56,13 +57,14 @@ html
               .progress
 
           .action
-            a.buy-ticket href='#' Pledge <small>DKK</small> 3.141,–
+            a.buy-ticket href='#' Back This Course
             .price
-              | for 1 seat
+              | Get 1 seat for a very special early-cat price of
+                  <strong><small>DKK</small> 3.141,–</strong>
               br
               br
               small
-                | You will only be charged if the campaing reaches its goal.
+                | You will only be charged if the campaign reaches its goal.
                 |  If you don't like the course—we'll give the money back.
 
         .description
@@ -74,7 +76,7 @@ html
             markdown:
               Most products these days, even the simplest apps
               need some measure of back-end development.
-              More and more people are learning the desing and
+              More and more people are learning the design and
               front-end tools to create the products of their
               dreams but back-end development remains one of
               the trickier aspects of the process. We'd like to
@@ -97,7 +99,7 @@ html
 
               You will not become an expert in these technologies,
               but you will learn enough to be able to use them to
-              create simple API servers, and be prepated enough to
+              create simple API servers, and be prepared enough to
               be able to study further on your own.
 
         .instructor
@@ -183,8 +185,8 @@ html
               Cat Academy is a new crowdfunded approach to learning. We've
               learned so much and we want to be able to organize courses,
               workshops and talks that benefit you. This is why we've taken a
-              crowdfunded approach to ticket sales—a minumum amount of 5
-              seats needs to be reserved for the event ot go forward.
+              crowdfunded approach to ticket sales—a minimum amount of 5
+              seats needs to be reserved for the event to go forward.
 
               We're aiming for very compact, hands-on events that will help
               you get familiar with awesome subjects and leave you thirsty
@@ -239,7 +241,6 @@ coffee:
   else
     base_url = 'https://api.catacademy.dk'
     image_url = 'images/checkout-logo.png'
-
 
   render_event = (event) ->
     participants = event.participants
