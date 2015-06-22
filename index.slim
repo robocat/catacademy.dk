@@ -3,6 +3,7 @@ html
   head
     title Cat Academy
     meta charset='utf-8'
+    meta property="og:image" content="images/checkout-logo.png"
     link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css'
     link rel='stylesheet' href='style.css'
     link rel='icon' href='images/icon.png'
@@ -59,15 +60,19 @@ html
               .progress
 
           .action
-            a.buy-ticket href='#' Back This Course
+            a.buy-ticket href='#'
+              | <small>Back This Course</small> <br> Reserve 1 seat
+
             .price
-              | Get 1 seat for a very special early-cat price of
+              | Early-cat price of
                   <strong><small>DKK</small> 3.141,–</strong>
               br
               br
               small
                 | You will only be charged if the campaign reaches its goal.
                 |  If you don't like the course—we'll give the money back.
+                |  Got questions? Send us an email
+                |  <a href='mailto:hello@catacademy.dk'>hello@catacademy.dk</a>
 
         .description
           .quote
