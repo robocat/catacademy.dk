@@ -22,10 +22,12 @@ html
         h2 Crowdfunded local courses & workshops from people who care.
 
         .navigation
-          a.left href='#first-course' Check out our first course
+          a.left href='#courses' Check out our upcoming courses below
           a.right href='#newsletter-signup' Be notified of future events
 
     .content
+
+      .event-card-list#courses
 
       .mission-statement
         markdown:
@@ -37,177 +39,20 @@ html
           our experience and knowledge with you through honest and
           well crafted learning events.
 
-        a.tweet-tag href='https://twitter.com/intent/tweet?text=.@robocat+is+introducing+%23CatAcademy+–+Crowdfunded+local+courses+%26+workshops+from+people+who+care+https://catacademy.dk' Share on Twitter
+        /a.tweet-tag href='https://twitter.com/intent/tweet?text=.@robocat+is+introducing+%23CatAcademy+–+Crowdfunded+local+courses+%26+workshops+from+people+who+care+https://catacademy.dk' Share on Twitter
+        hr
 
-      .course
-        .course-card#first-course
-          .tagline
-            .tag course
+        h1 Upcoming courses
 
-          p
-            markdown:
-              July 13–14^(th)
+      .event-list
+        .event#back-end-api-development
+        == File.read 'build/back-end-api-development.html'
 
-          h1.title
-            span style='font-weight: normal' ⌛
+        .event#internal-communication-and-project-management-with-podio
+        == File.read 'build/internal-communication-and-project-management-with-podio.html'
 
-          .progress-bar
-            .seats-available
-              .value  _/_
-              | Seats available
-            .seat-goal
-              .value _
-              | Seat goal
-            .bar
-              .progress
-
-          .action
-            a.buy-ticket href='#'
-              | <small>Back This Course</small> <br> Reserve 1 seat
-
-            .price
-              | Early-cat price of
-                  <strong><small>DKK</small> 3.141,–</strong>
-              br
-              br
-              small
-                | You will only be charged if the event reaches its goal.
-                |  If you don't like the course—we'll give the money back.
-                |  Got questions? Send us an email
-                |  <a href='mailto:hello@catacademy.dk'>hello@catacademy.dk</a>
-
-        .description
-          .quote
-            markdown:
-              "Help! My App Needs a Back-end!"
-
-          .copy
-            markdown:
-              Most products these days, even the simplest apps
-              need some measure of back-end development.
-              More and more people are learning the design and
-              front-end tools to create the products of their
-              dreams but back-end development remains one of
-              the trickier aspects of the process. We'd like to
-              help you with that.
-
-        .what-you-learn
-          h3 What you'll learn
-
-          .copy
-            markdown:
-              During the two-day course you will develop a
-              small API server for a turn-based multiplayer
-              game. You will learn to use the following
-              technologies and tools:
-
-                * Python programming language,
-                * Flask–web micro-framework,
-                * SQLAlchemy—object-relational mapping library,
-                * Heroku—app-hosting platform.
-
-              You will not become an expert in these technologies,
-              but you will learn enough to be able to use them to
-              create simple API servers, and be prepared enough to
-              be able to study further on your own.
-
-        .instructor
-          h3 Instructor
-
-          .copy
-            markdown:
-              [Vladimir Keleshev](https://twitter.com/keleshev) is a software
-              developer at Robocat.  He worked on back-ends of online games,
-              such as [Gameglobe](http://gameglobe.com/) and
-              [Wordbase](http://www.wordbaseapp.com/).  He also authored some
-              open-source projects, such as
-              [docopt](https://github.com/docopt/docopt) and
-              [schema](https://github.com/keleshev/schema).  As a hobby he
-              helps teaching a [Python
-              course](http://www2.compute.dtu.dk/courses/02819/) at Technical
-              University of Denmark as a teaching assistant.  He co-organizes
-              [Python meetup](http://pycon.dk/) as well as [Polyglots
-              meetup](http://www.polyglots.dk/) in Copenhagen area.
-              Occasionally he speaks at
-              [conferences](http://youtu.be/pXhcPJK5cMc) and
-              [meetups](http://youtu.be/1h1mM7VwNGo).
-
-        .prerequisites
-          h3 Prerequisites
-
-          .copy
-            markdown:
-              Here are the things that are necessary to know in before joining
-              this course:
-
-               * programming in an *object-oriented* style, in a language such
-                 as
-                 JavaScript, Objective-C, Java, C# or other;
-               * *version-control* systems, such as
-                 Subversion, Mercurial or Git;
-               * *SQL* and relational databases,
-               * *Unix* operating system (e.g. OS X or Linux) and its *shell*.
-
-              You will need to bring a laptop with <abbr>OS X</abbr> or Linux
-              operating system installed. If you have Windows you can use
-              [VirtualBox](http://www.psychocats.net/ubuntu/virtualbox) to
-              install Linux alongside Windows in a sandbox environment.  But
-              remember that you still need basic knowledge of Unix and shell.
-
-              *Unlike the title suggests, you do not need to be a front-end
-              developer to join this course.*
-
-        .details
-
-          .left
-            markdown:
-              ### Preliminary Schedule
-
-              Thursday, July 13^(th)
-
-              * 09:30 *Breakfast*
-              * 10:00 How web works
-              * 11:00 Environment setup
-              * 12:00 *Lunch*
-              * 13:00 Hello world API
-              * 15:00 *Coffee break*
-              * 15:15 Database and persistence
-              * 16:30 *Over and out*
-
-              Friday, July 14^(th)
-
-              * 09:30 *Breakfast*
-              * 10:00 Database migrations
-              * 12:00 *Lunch*
-              * 13:00 Talking to other services
-              * 15:00 *Coffee break*
-              * 15:15 Deployment
-              * 16:30 *Retrospective and feedback*
-
-              ### Location
-
-              Robocat
-
-              Pilestræde 43, 2^(nd) floor <br>
-              1112 Copenhagen <br>
-              Denmark
-
-          .right
-            markdown:
-              ### Concept & Pricing
-
-              Cat Academy is a new crowdfunded approach to learning. We've
-              learned so much and we want to be able to organize courses,
-              workshops and talks that benefit you. This is why we've taken a
-              crowdfunded approach to ticket sales—a minimum amount of 5
-              seats needs to be reserved for the event to go forward.
-
-              We're aiming for very compact, hands-on events that will help
-              you get familiar with awesome subjects and leave you thirsty
-              for more
-
-        .map
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2249.4510110893502!2d12.579214999999998!3d55.6811462!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46525310a82927d1%3A0xa3f8d542574de862!2sPilestr%C3%A6de+43%2C+1112+K%C3%B8benhavn+K!5e0!3m2!1sen!2sdk!4v1432124533841" width="850" height="450" frameborder="0" style="border:0"></iframe>
+        .event#designing-better-app-icons
+        == File.read 'build/designing-better-app-icons.html'
 
       .newsletter
         p
@@ -220,6 +65,7 @@ html
         .tweet style='display: none'
           br
           a.tweet-tag href='https://twitter.com/intent/tweet?text=.@robocat+is+introducing+%23CatAcademy+–+Crowdfunded+local+courses+%26+workshops+from+people+who+care+https://catacademy.dk' Tweet about it
+
 
     .footer
       .contents
@@ -247,89 +93,9 @@ html
             a.email href='mailto:support@catacademy.dk?subject=Cat Academy'
               | hello@catacademy.dk
 
-      small.copyright Copyright © 2009–2015 Robocat
+      small.copyright Copyright © 2009–#{year} Robocat
 
-coffee:
-  if location.hostname == 'catacademy.dev'
-    base_url = 'http://catacademy.dev:5000'
-    image_url = 'images/checkout-logo.png'
-  else
-    base_url = 'https://api.catacademy.dk'
-    image_url = 'images/checkout-logo.png'
-
-  render_event = (event) ->
-    participants = event.participants
-    progress = participants.pledged / participants.max * 100
-    $('.course .title').text(event.name)
-    $('.bar .progress').animate({width: "#{progress}%"}, 'slow')
-    $('.seat-goal .value').text(participants.min)
-    $('.seats-available .value').text(
-      "#{participants.max - participants.pledged}/#{participants.max}")
-
-  $.getJSON(base_url).done ({events, stripe}) ->
-    console.log(events)
-    event = events[0]
-    render_event event
-    checkout = StripeCheckout.configure
-      key: stripe.publishable_key
-      image: image_url #'images/checkout-logo.png'
-      token: (token) ->
-        console.log token
-        url = "#{base_url}/events/#{event.id}/pledges"
-        console.log(url)
-        $.ajax(url, {
-          type: 'POST',
-          contentType: 'application/json',
-          data: JSON.stringify(token),
-        }).done () ->
-          $('.buy-ticket').css(backgroundColor: 'black').text('Thank you')
-          promise = $.getJSON(base_url).done ({events: [event], stripe}) ->
-            render_event event
-            $('.buy-ticket').text(
-              "Thank you! Check your inbox #{token.email} for details."
-            ).off('click')
-            $('.action .price').text('')
-          promise.fail (data, status, jqxhr) ->
-            alert "An error occured. Please contact support@catacademy.dk."
-
-    if event.is_fully_booked
-      $('.action').html('The event was successfully funded and is fully booked. <br> For future events <a href=#newsletter-signup>signup for our newsletter</a>.')
-    else
-      $('.buy-ticket').on 'click', (e) ->
-        console.log 'click'
-        checkout.open
-          name: 'Cat Academy'
-          description: "Pledge for course: #{event.name}"
-          amount: 314100
-          currency: 'dkk'
-          panelLabel: 'Pledge {{amount}}' # DKK 3,141.–'
-          allowRememberMe: false
-        e.preventDefault()
-
-    $(window).on 'popstate', -> checkout.close()
-
-  $('a[href^="#"]').on 'click', (event) ->
-    target = $($(this).attr('href'))
-
-    if target.length
-      event.preventDefault()
-      #target.animate {zoom: '115%'}, 1000
-      #target.focus()
-      $('html, body').animate {scrollTop: target.offset().top}, 500, ->
-        target.focus()
-
-  $('.newsletter form').on 'submit', (e) ->
-    console.log 'submit'
-    e.preventDefault()
-    url = 'https://robocat-newsletters.herokuapp.com/signup'
-    post_data = {email: $('input.email').val(), list: 'cat-academy'}
-    $.post url, post_data, ({status, message}, _status, _xhr) ->
-      console.log status
-      #if status == 'success'
-      $('input.email').attr('disabled', 'disabled')
-      $('input.email').val('Thank you.')
-      $('input.subscribe').attr('disabled', 'disabled').css('opacity', 0)
-      $('.tweet').fadeIn('slow')#show('slow')
+script src='/script.js'
 
 javascript:
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

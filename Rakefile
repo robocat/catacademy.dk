@@ -1,34 +1,77 @@
 require 'ostruct'
+require 'date'
 
 require 'slim'
 require 'sass'
+require 'coffee-script'
 
-
-task :default => :build
-
-task :build  do |t|
-  sh 'mkdir -p build'
-  sh 'cp -r images build/'
-
-  optional_option_hash = {}
-  Slim::Embedded.options[:markdown] = {superscript: true}
-  template = Slim::Template.new('index.slim', optional_option_hash)
-  scope = OpenStruct.new(author: 'Vladimir', year: 2014, items: [])
-  html = template.render(scope)
-  html = Redcarpet::Render::SmartyPants.render(html)
-  File.open('build/index.html', 'w') do |file|
-    file.write(html)
-  end
-
-  sass_source = File.open('style.sass') { |file| file.read }
-  sass_engine = Sass::Engine.new(sass_source, :syntax => :sass)
-  css = sass_engine.render
-  File.open('build/style.css', 'w') do |file|
-    file.write(css)
+def pattern(hash, &block)
+  from, to = hash.flatten
+  rule({from => -> (task) { task.sub(from, to) }}) do |t|
+    puts "#{t.source} -> #{t.name}"
+    block.call t
   end
 end
 
-task :deploy => :build do
+def write(file_name, contents)
+  File.open(file_name, 'w') do |file|
+    file.write(contents)
+  end
+end
+
+task :default => :compile
+
+directory 'build'
+
+task :compile => [
+  'build',
+  'build/images',
+  'build/internal-communication-and-project-management-with-podio.html',
+  'build/back-end-api-development.html',
+  'build/designing-better-app-icons.html',
+  'build/index.html',
+  'build/style.css',
+  'build/script.js',
+]
+
+
+
+task 'build/images' => 'images' do |t|
+  sh 'cp -r images build/'
+end
+
+pattern %r{^build/(.*)\.js$} => '\1.coffee' do |t|
+  write(t.name, CoffeeScript.compile(File.read(t.source)))
+end
+
+pattern %r{^build/(.*)\.css$} => '\1.sass' do |t|
+  options = {
+    :syntax => :sass,
+  }
+
+  write(t.name, Sass::Engine.new(File.read(t.source), options).render)
+end
+
+pattern %r{^build/(.*)\.html$} => '\1.slim' do |t|
+  options = {
+    markdown: {
+      superscript: true
+    }
+  }
+
+  template = Slim::Template.new(t.source, options)
+  scope = OpenStruct.new(year: Date.today.year)
+  html = template.render(scope)
+  html = Redcarpet::Render::SmartyPants.render(html)
+
+  write(t.name, html)
+end
+
+task :serve => :compile do
+  sh '(cd build; python2 -m SimpleHTTPServer)'
+end
+
+task :deploy => :compile do
   sh 's3_website push'
 end
 
