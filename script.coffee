@@ -47,17 +47,25 @@ class Event
 
   class @Card
     @render: (event) ->
+      color = if event.is_over then 'grey' else event.color
       """
-        <div class=event-card style="background-color: #{event.color}">
+        <div class=event-card style="background-color: #{color}">
           <span class=tag
-                style="color: #{event.color}">
+                style="color: #{color}">
             #{event.tags.join(' + ')}
           </span>
           <div class=dates>#{event.dates}</div>
           <h1 class=name>#{event.name}</h1>
-          <a href="##{event.slug}">Learn more</a>
+          #{@render_link event}
         </div>
       """
+
+    @render_link: (event) ->
+      if event.is_over
+        """<span class=action>Event is over</span>"""
+      else
+        """<a class=action href="##{event.slug}">Learn more</a>"""
+
 
 
 class API
@@ -90,25 +98,26 @@ render = () ->
     events.map (event) ->
       reward = event.rewards[0]
       $('.event-card-list').append(Event.Card.render(event))
-      id = '#' + event.slug
-      $(id)[0].innerHTML = Event.Header.render(event)
-      $(id).hide().fadeIn('slow')
-      checkout = Checkout.create stripe.publishable_key, (token) ->
-        API.post_pledge reward.id, token, () ->
-          alert """Thanks joining the event. Confirmation email will be sent \
-                   shortly to #{token.email}"""
-          render()
-      console.log 'map'
-      $(id + ' .buy').on 'click', (e) ->
-        console.log('buy')
-        checkout.open
-          name: 'Cat Academy'
-          description: "Pledge for course: #{event.name}"
-          amount: reward.price.amount * 100
-          currency: 'dkk'
-          panelLabel: 'Pledge {{amount}}'
-          allowRememberMe: false
-        e.preventDefault()
+      if not event.is_over
+        id = '#' + event.slug
+        $(id)[0].innerHTML = Event.Header.render(event)
+        $(id).hide().fadeIn('slow')
+        checkout = Checkout.create stripe.publishable_key, (token) ->
+          API.post_pledge reward.id, token, () ->
+            alert """Thanks joining the event. Confirmation email will be sent \
+                     shortly to #{token.email}"""
+            render()
+        console.log 'map'
+        $(id + ' .buy').on 'click', (e) ->
+          console.log('buy')
+          checkout.open
+            name: 'Cat Academy'
+            description: "Pledge for course: #{event.name}"
+            amount: reward.price.amount * 100
+            currency: 'dkk'
+            panelLabel: 'Pledge {{amount}}'
+            allowRememberMe: false
+          e.preventDefault()
 render()
 
 
