@@ -75,6 +75,10 @@ task :deploy => :compile do
   sh 's3_website push'
 end
 
+task :staging => :compile do
+  sh 's3_website push --config-dir=staging'
+end
+
 task :clean do
   sh 'rm -rf build'
 end
