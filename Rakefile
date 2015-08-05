@@ -13,12 +13,6 @@ def pattern(hash, &block)
   end
 end
 
-def write(file_name, contents)
-  File.open(file_name, 'w') do |file|
-    file.write(contents)
-  end
-end
-
 task :default => :compile
 
 directory 'build'
@@ -34,22 +28,20 @@ task :compile => [
   'build/script.js',
 ]
 
-
-
 task 'build/images' => 'images' do |t|
   sh 'cp -r images build/'
 end
 
 pattern %r{^build/(.*)\.js$} => '\1.coffee' do |t|
-  write(t.name, CoffeeScript.compile(File.read(t.source)))
+  File.write(t.name, CoffeeScript.compile(File.read(t.source)))
 end
 
 pattern %r{^build/(.*)\.css$} => '\1.sass' do |t|
   options = {
-    :syntax => :sass,
+    syntax: :sass,
   }
 
-  write(t.name, Sass::Engine.new(File.read(t.source), options).render)
+  File.write(t.name, Sass::Engine.new(File.read(t.source), options).render)
 end
 
 pattern %r{^build/(.*)\.html$} => '\1.slim' do |t|
@@ -64,7 +56,7 @@ pattern %r{^build/(.*)\.html$} => '\1.slim' do |t|
   html = template.render(scope)
   html = Redcarpet::Render::SmartyPants.render(html)
 
-  write(t.name, html)
+  File.write(t.name, html)
 end
 
 task :serve => :compile do
